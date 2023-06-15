@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>我的高中教學計畫</h2>
+<table>
+  <tr>
+    <th>時間</th>
+    <th>課程</th>
+    <th>操作</th>
+  </tr>
+  {% for journal in journal_list %}
+  <tr>
+    <td>{{ journal.created|date:"l" }}{{ journal.created }}</td>
+    <td><a href="{{ journal.id }}/update/">{{ journal.content }}</a></td>
+    <td><a href="{{ journal.id }}/delete/">刪除</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% include 'pagination.html' %}
+{% endblock %}
