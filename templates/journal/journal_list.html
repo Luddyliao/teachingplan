@@ -5,14 +5,22 @@
 <table>
   <tr>
     <th>時間</th>
-    <th>課程</th>
+    <th>學期</th>
+    <th>班級</th>
+    <th>教學計畫</th>
+    <th>科目</th>
+    <th>老師</th>
     <th>操作</th>
   </tr>
-  {% for journal in journal_list %}
+  {% for teachingplan in teachingplan_list %}
   <tr>
-    <td>{{ journal.created|date:"l" }}{{ journal.created }}</td>
-    <td><a href="{{ journal.id }}/update/">{{ journal.content }}</a></td>
-    <td><a href="{{ journal.id }}/delete/">刪除</a></td>
+    <td>{{ teachingplan.created|date:"l" }}{{ teachingplan.created }}</td>
+    <td>{{ teachingplan.seme }}</td>
+    <td>{{ teachingplan.cclass}}</td>
+    <td><a href="/media/{{ teachingplan.ffile }}">{{ teachingplan.ffile}}</a></td>
+    <td>{{ teachingplan.subject }}</td>
+    <td>{{ teachingplan.teacher }}</td>
+    <td><a href="{{ teachingplan.id }}/delete/">刪除</a></td>
   </tr>
   {% endfor %}
 </table>
