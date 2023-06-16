@@ -1,9 +1,9 @@
 from django.db import models
 
-# Create your models here.
-class Journal(models.Model):
-    content = models.TextField("內容")
+class TeachingPlan(models.Model):
+    seme = models.TextField('學期')
+    cclass = models.TextField('班級')
+    ffile = models.FileField('教學計劃')
+    subject = models.TextField('科目')
+    teacher = models.ForeignKey(User, models.CASCADE)
     created = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.content
